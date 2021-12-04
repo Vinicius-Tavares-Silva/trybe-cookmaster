@@ -2,10 +2,12 @@ const express = require('express');
 const error = require('../../middlewares/error');
 const recipes = require('../../controllers/recipes/router');
 const users = require('../../controllers/users/router');
+const { login } = require('../../controllers/login/login');
 
 const app = express();
 app.use(express.json());
 
+app.post('/login', login);
 app.use('/users', users);
 app.use('/recipes', recipes);
 app.use(error);
