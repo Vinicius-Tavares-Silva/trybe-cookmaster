@@ -12,7 +12,7 @@ module.exports = async (req, res, next) => {
       });
     }
     await model.remove(id);
-    return res.status(200).send(object);
+    return res.status(204).send(object);
   } catch (err) {
     next(err);
   }
