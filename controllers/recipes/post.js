@@ -11,7 +11,7 @@ module.exports = async (req, res, next) => {
       return res.status(400).send({ message });
     }
     const { ops: [object] } = await model.create(payload);
-    return res.status(201).send({ recipe: { userId: _id, ...object } });
+    return res.status(201).send({ recipe: { ...object, userId: _id } });
   } catch (err) {
     next(err);
   }

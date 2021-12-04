@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
     const { authorization } = req.headers;
 
     if (!authorization) {
-      return res.status(401).send({ message: 'token não informado!' });
+      return res.status(401).send({ message: 'missing auth token' });
     }
 
     const user = authService.verifyToken(authorization);
