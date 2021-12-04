@@ -12,8 +12,8 @@ const genToken = (data) => jwt.sign({ data }, API_SECRET, JWT_CONFIG);
 const verifyToken = (token) => {
   try {
     const decoded = jwt.verify(token, API_SECRET);
-    const { username } = decoded.data;
-    return username;
+    const { email } = decoded.data;
+    return email;
   } catch (err) {
     return null;
   }

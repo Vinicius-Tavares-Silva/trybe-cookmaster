@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
 
     const user = authService.verifyToken(authorization);
     if (!user) {
-      return res.status(401).send({ message: 'Token invalido' });
+      return res.status(401).send({ message: 'jwt malformed' });
     }
     req.user = user;
 
