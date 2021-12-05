@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const error = require('../../middlewares/error');
 const recipes = require('../../controllers/recipes/router');
@@ -6,6 +7,7 @@ const { login } = require('../../controllers/login/login');
 
 const app = express();
 app.use(express.json());
+app.use(express.static(path.resolve(__dirname, 'src/uploads')));
 
 app.post('/login', login);
 app.use('/users', users);
